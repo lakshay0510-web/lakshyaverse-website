@@ -231,41 +231,77 @@ section {
 }
 
 /* Hero Section */
-#home {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
+
 
 /* About Section */
 #about {
-    background: linear-gradient(135deg, #f0f0f0, #d9e4dd);
-    color: #333;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Video stays in the back */
+#about .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Overlay between video and text */
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* adjust darkness here */
+  z-index: 1; /* IMPORTANT */
+}
+
+/* Text content on top of everything */
+#about .about-content {
+  position: relative;
+  z-index: 2; /* IMPORTANT */
+  padding: 80px 20px;
+  color: white;
+}
+
+/* Make headings and paragraphs white */
+#about .about-content h2,
+#about .about-content p {
+  color: white;
+}
+
+
+
 
 /* Books Section */
 #books {
-    background: linear-gradient(135deg, #08135c, #08135c);
-    background-size: 400% 400%;
-    animation: gradientShift 20s ease infinite;
-    color: #333;
+  background: url('images/books.jpg') center center / cover no-repeat;
+  position: relative;
+  color: white;
 }
 
+
+
 /* YouTube Section */
-#youtube {
-    background: linear-gradient(135deg, #1e1e1e, #2c2c2c, #121212);
-    background-size: 400% 400%;
-    animation: gradientShift 25s ease infinite;
-    color: #fff;
-}
+
 
 /* Contact Section */
 #contact {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    background-size: 400% 400%;
-    animation: gradientShift 18s ease infinite;
-    color: #333;
+  background: url('images/contact.jpg') center center / cover no-repeat;
+  position: relative;
+  color: white;
 }
+
+
 
 /* Gradient Animation Keyframes */
 @keyframes gradientShift {
@@ -352,3 +388,362 @@ section > * {
     font-style: italic;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+#home {
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+#home .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+#home .hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 120px 20px;
+  text-align: center;
+}
+#youtube {
+  position: relative;
+  overflow: hidden;
+}
+
+#youtube .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+#youtube .youtube-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px;
+  color: white;
+}
+#home .hero-content {
+  color: black;
+}
+#home .hero-content h2,
+#home .hero-content p {
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.4),
+    0 0 20px rgba(255,255,255,0.2);
+}
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+#about .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+#about .about-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px;
+  color: white;
+}
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* adjust opacity here */
+  z-index: 0;
+}
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* adjust darkness here */
+  z-index: 0;
+}
+.about-quotes blockquote {
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  padding: 20px;
+  border-left: 3px solid rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-style: italic;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  color: white; /* make text white over dark bg */
+}
+#about .about-content,
+#about .about-content p,
+#about .about-content h2 {
+  color: white;
+}
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65); /* Try 0.65 to start */
+  z-index: 0;
+}
+#about .about-content h2 {
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+#about .about-content p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+#about .about-content,
+#about .about-content p,
+#about .about-content h2 {
+  color: white;
+}
+/* === CLEAN ABOUT SECTION FIX === */
+
+/* Make About section container ready for video background */
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video background always behind everything */
+#about .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Overlay between video and text */
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* Adjust darkness if needed */
+  z-index: 1;
+}
+
+/* Text content sits above video and overlay */
+#about .about-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Make headings and paragraphs white and styled */
+#about .about-content h2 {
+  color: white;
+  font-size: 2.2em;
+  font-weight: 700;
+}
+#about .about-content p {
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+
+/* Quote boxes clean and semi-transparent */
+.about-quotes blockquote {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-left: 3px solid rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-style: italic;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  color: white;
+}
+
+/* Remove the floating particles from all sections */
+section::before {
+  content: none;
+}
+#books {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video background behind everything */
+#books .section-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Overlay between video and text */
+#books::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* adjust darkness if needed */
+  z-index: 1;
+}
+
+/* Books content on top of everything */
+#books .books-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+}
+
+/* Ensure book cards look good over dark overlay */
+.book-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  color: white;
+}
+
+/* Book titles white */
+.books-title {
+  color: white;
+}
+.books-title {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 2em;
+  font-weight: 700;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+}
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video background behind everything in header */
+header .header-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Overlay (optional) to darken video */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* adjust opacity here */
+  z-index: 1;
+}
+
+/* Keep header content above video and overlay */
+header .header-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Make nav links white */
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* Nav link hover style */
+header nav a:hover {
+  text-decoration: underline;
+}
+/* === Enhanced Header Video Styling === */
+
+/* Make the header video darker and softer */
+header .header-video {
+  filter: brightness(0.5) blur(3px); /* adjust values as needed */
+}
+
+/* Dark overlay for extra contrast */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* adjust opacity if needed */
+  z-index: 1;
+}
+
+
